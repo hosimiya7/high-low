@@ -1,28 +1,27 @@
-document.getElementById("start").onclick = function () {
+window.onload = function() {
 
-    const highAndLow = new HighAndLow
+    const highAndLow = new HighAndLow()
 
-    highAndLow.startGame()
+    document.getElementById("start").onclick = function () {
+        highAndLow.startGame()
+    }
 
     document.getElementById("high").onclick = function () {
+        highAndLow.playGame()
         if (highAndLow.random_num <= highAndLow.next_num) {
             highAndLow.getPoint()
-            highAndLow.playGame()
-
         } else {
             highAndLow.lostPoint()
-            highAndLow.playGame()
         }
     }
 
     document.getElementById("low").onclick = function () {
+        highAndLow.playGame()
         if (highAndLow.random_num >= highAndLow.next_num) {
             highAndLow.getPoint()
-            highAndLow.playGame()
 
         } else {
             highAndLow.lostPoint()
-            highAndLow.playGame()
         }
     }
     document.getElementById("reset").onclick = function () {
@@ -33,7 +32,7 @@ document.getElementById("start").onclick = function () {
 
 class HighAndLow {
 
-    random
+    random_num
     next_num
     point
 
@@ -47,18 +46,18 @@ class HighAndLow {
         return Math.floor(Math.random() * 13) + 1;
     }
 
-    startGame(){
+    startGame() {
         this.setNumber()
         this.setPoint()
     }
 
-    playGame(){
+    playGame() {
         this.getNextnumber()
         this.setNumber()
         this.setPoint()
     }
 
-    resetGame(){
+    resetGame() {
         this.resetPoint()
         this.clearNumber()
         this.setPoint()
@@ -89,7 +88,7 @@ class HighAndLow {
         this.point = 1
     }
 
-    clearNumber(){
+    clearNumber() {
         document.getElementById("number").innerHTML = null
     }
 }
