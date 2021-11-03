@@ -3,7 +3,9 @@
     const highAndLow = new HighAndLow()
 
     document.getElementById("start").onclick = function () {
-        highAndLow.startGame()
+        if(highAndLow.point !== 'コインが0になりました'){
+            highAndLow.startGame()
+        }
     }
 
 
