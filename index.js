@@ -13,6 +13,7 @@
                 highAndLow.getPoint()
             } else {
                 highAndLow.lostPoint()
+                highAndLow.removeClassActive()
             }
             highAndLow.playGame()
         }
@@ -24,6 +25,7 @@
                 highAndLow.getPoint()
             } else {
                 highAndLow.lostPoint()
+                highAndLow.removeClassActive()
             }
             highAndLow.playGame()
         }
@@ -106,7 +108,6 @@ class HighAndLow {
     }
 
     addClassActive() {
-
         start.classList.add("active")
     }
 
