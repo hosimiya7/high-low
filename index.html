@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
-    <span id="point"></span>
-    <input type="button" value="始める" id="start">
+    <div class="coin-wrapper flex">
+        <img src="img/coin.png" alt="">
+        <p id="point">0</p>
+    </div>
+    <div class="start-button button-wrapper">
+        <input type="button" value="start" id="start">
+    </div>
 
-    <span id="number"></span>
+    <div class="number-wrapper">
+        <p id="number">ここに数値が出ます</p>
+    </div>
 
-    <input type="button" value="高い" id="high">
-    <input type="button" value="低い" id="low">
+    <div class="play-button button-wrapper">
+        <input type="button" value="high" id="high">
+        <input type="button" value="low" id="low">
+    </div>
 
-    <input type="button" value="リセット" id="reset">
+    <div class="reset-button button-wrapper">
+        <input type="button" value="reset" id="reset">
+    </div>
 
 
     <script src="index.js"></script>
 </body>
+
 </html>

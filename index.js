@@ -1,4 +1,4 @@
-;window.onload = function() {
+; window.onload = function () {
 
     const highAndLow = new HighAndLow()
 
@@ -6,40 +6,50 @@
         highAndLow.startGame()
     }
 
+
     document.getElementById("high").onclick = function () {
-        if (highAndLow.randomNum <= highAndLow.nextNum) {
-            highAndLow.getPoint()
-        } else {
-            highAndLow.lostPoint()
+        if (highAndLow.start === 1) {
+            if (highAndLow.randomNum <= highAndLow.nextNum) {
+                highAndLow.getPoint()
+            } else {
+                highAndLow.lostPoint()
+            }
+            highAndLow.playGame()
         }
-        highAndLow.playGame()
     }
 
     document.getElementById("low").onclick = function () {
-        if (highAndLow.randomNum >= highAndLow.nextNum) {
-            highAndLow.getPoint()
-
-        } else {
-            highAndLow.lostPoint()
+        if (highAndLow.start === 1) {
+            if (highAndLow.randomNum >= highAndLow.nextNum) {
+                highAndLow.getPoint()
+            } else {
+                highAndLow.lostPoint()
+            }
+            highAndLow.playGame()
         }
-        highAndLow.playGame()
     }
+
+
     document.getElementById("reset").onclick = function () {
         highAndLow.resetGame()
     }
-}
 
+}
 
 class HighAndLow {
 
     randomNum
     nextNum
     point
+    start
+    startButton
 
     constructor() {
         this.randomNum = this.setRandomNumber()
         this.nextNum = this.setRandomNumber()
         this.point = 1
+        this.start = 0
+        this.startButton = document.getElementById("start-button")
     }
 
     setRandomNumber() {
@@ -47,8 +57,10 @@ class HighAndLow {
     }
 
     startGame() {
+        this.start = 1
         this.setNumber()
         this.setPoint()
+        this.addClassActive()
     }
 
     playGame() {
@@ -61,10 +73,11 @@ class HighAndLow {
         this.resetPoint()
         this.clearNumber()
         this.setPoint()
+        this.removeClassActive()
     }
 
     setNumber() {
-        document.getElementById("number").innerHTML = this.random_num
+        document.getElementById("number").innerHTML = this.randomNum
     }
 
     setPoint() {
@@ -81,7 +94,7 @@ class HighAndLow {
     }
 
     lostPoint() {
-        this.point = 0
+        this.point = 'コインが0になりました'
     }
 
     resetPoint() {
@@ -89,7 +102,17 @@ class HighAndLow {
     }
 
     clearNumber() {
-        document.getElementById("number").innerHTML = null
+        document.getElementById("number").innerHTML = 'ここに数値が出ます'
+    }
+
+    addClassActive() {
+
+        start.classList.add("active")
+    }
+
+    removeClassActive() {
+        this.start = 0
+        start.classList.remove("active")
     }
 }
 
